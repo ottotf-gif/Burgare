@@ -4,14 +4,14 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-coal-900"
+      className="relative min-h-[88svh] sm:min-h-[100svh] flex flex-col justify-center overflow-hidden bg-coal-900"
     >
       {/* Background food image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1600"
           alt="Saftig smashburgare"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[center_60%] sm:object-center"
         />
         {/* Warm dark wash so text pops, food still glows */}
         <div className="absolute inset-0 bg-gradient-to-t from-coal-900 via-coal-900/75 to-coal-900/45" />
@@ -35,8 +35,8 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="font-display font-900 text-cream leading-[0.92] tracking-tight uppercase">
-            <span className="block text-[11vw] sm:text-6xl md:text-7xl text-leaf-400 whitespace-nowrap">Smashburgare</span>
-            <span className="block text-[10vw] sm:text-5xl md:text-6xl text-flame-400 italic font-700 mt-1">
+            <span className="block text-[9vw] sm:text-6xl md:text-7xl text-leaf-400 whitespace-nowrap">Smashburgare</span>
+            <span className="block text-[8vw] sm:text-5xl md:text-6xl text-flame-400 italic font-700 mt-1">
               från vår vagn i Ellös
             </span>
           </h1>
