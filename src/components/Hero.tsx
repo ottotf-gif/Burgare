@@ -35,7 +35,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="font-display font-900 text-cream leading-[0.92] tracking-tight uppercase">
-            <span className="block text-[12vw] sm:text-6xl md:text-7xl text-leaf-400 break-words">Smashburgare</span>
+            <span className="block text-[11vw] sm:text-6xl md:text-7xl text-leaf-400 whitespace-nowrap">Smashburgare</span>
             <span className="block text-[10vw] sm:text-5xl md:text-6xl text-flame-400 italic font-700 mt-1">
               från vår vagn i Ellös
             </span>
