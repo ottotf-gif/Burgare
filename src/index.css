@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #121110;
+    color: #f4ede2;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Subtil träkols-textur via brus */
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* Krittavla-bakgrund för menyn */
+  .bg-chalkboard {
+    background-color: #181614;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.018) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.018) 0%, transparent 40%);
+  }
+
+  .text-stroke-flame {
+    -webkit-text-stroke: 1.5px #e34a26;
+    color: transparent;
+  }
+
+  .underline-chalk {
+    text-decoration: underline;
+    text-decoration-color: #f0c34a;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #121110; }
+::-webkit-scrollbar-thumb { background: #3a342e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3f9d3f; }
+
+/* Respektera reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
