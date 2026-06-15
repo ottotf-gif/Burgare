@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Clock, MapPin, Navigation } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { MAPS_URL } from '../lib/location';
 import type { Event } from '../types';
 
 function formatDate(dateStr: string) {
@@ -15,10 +16,6 @@ function formatDate(dateStr: string) {
 function isPast(dateStr: string): boolean {
   return new Date(dateStr + 'T23:59:59') < new Date();
 }
-
-const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('Rompen Street Food Market, Lavö Hamn 950, 474 92 Tuvesvik');
 
 export default function Events() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -64,9 +61,13 @@ export default function Events() {
             {/* Image */}
             <div className="relative md:col-span-2 h-48 md:h-auto">
               <img
-                src="https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=900"
+                src="/rompen.jpg"
                 alt="Vår vagn på Rompen Street Food Market"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src =
+                    'https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=900';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-coal-800 via-coal-800/30 to-transparent" />
               <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-leaf-600 text-white text-xs font-display font-700 uppercase tracking-wide px-3 py-1.5">
