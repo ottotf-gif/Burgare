@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { MAPS_URL } from '../lib/location';
 
 interface FooterProps {
   onAdminClick: () => void;
@@ -54,7 +55,14 @@ export default function Footer({ onAdminClick }: FooterProps) {
             <ul className="space-y-2.5">
               <li className="flex items-start gap-2.5">
                 <MapPin size={15} className="text-flame-400 mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-cream/65">Lavö Hamn 950, 474 92 Tuvesvik, Ellös</span>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm text-cream/65 hover:text-leaf-300 transition-colors"
+                >
+                  Lavö Hamn 950, 474 92 Tuvesvik, Ellös
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={15} className="text-flame-400 shrink-0" />
