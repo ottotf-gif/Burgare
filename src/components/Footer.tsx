@@ -30,8 +30,8 @@ export default function Footer({ onAdminClick }: FooterProps) {
               <span className="font-display font-800 text-lg text-cream">Ödsmålsburgaren</span>
             </div>
             <p className="font-body text-sm text-cream/55 leading-relaxed max-w-sm">
-              Smashburgare från vår vagn på Rompen Street Food Market i Ellös sedan 2025.
-              Här hittar du oss — och vi tar även catering och event.
+              Smashburgare från vår vagn på Rompen Street Food Market i Ellös. Vi har
+              hållit på sedan 2015 — och tar även catering och event.
             </p>
           </div>
 
