@@ -4,7 +4,7 @@ const timeline = [
   { year: '2015', text: 'Jonas startar hemma i Ödsmål med att leverera förbokad lunch till privatpersoner och företag.' },
   { year: '2016', text: 'Det gick så bra att vi öppnade vår första lokal mitt i centrala Stenungsund.' },
   { year: '2024', text: 'Vi gick över till foodtruck på heltid — lunch och catering, dit folk var.' },
-  { year: '2025', text: 'Vi flyttade in i en fast vagn på Rompen Street Food Market i Ellös och satsade på ett renodlat smashburgar-koncept. Trucken åker numera bara ut då och då.' },
+  { year: '2026', text: 'Vi flyttade in i en fast vagn på Rompen Street Food Market i Ellös och satsade på ett renodlat smashburgar-koncept. Trucken åker numera bara ut då och då.' },
 ];
 
 const offers = [
@@ -23,7 +23,7 @@ export default function About() {
           {/* Left: story */}
           <div>
             <p className="font-display text-leaf-400 text-xs font-700 uppercase tracking-mega mb-3">
-              Foodtruck sedan 2015
+              Ödsmål · sedan 2015
             </p>
             <h2 className="font-display font-900 text-4xl md:text-5xl text-cream uppercase leading-[0.95] mb-7">
               En vagn, smash<br />
@@ -32,18 +32,10 @@ export default function About() {
 
             <div className="space-y-4 font-body text-cream/75 leading-relaxed">
               <p>
-                Jonas grundade Ödsmålsburgaren hemma i Ödsmål 2015 genom att leverera
-                lunch som folk och företag bokat in i förväg.
-              </p>
-              <p>
-                Det gick så pass bra att vi året därpå öppnade vår första lokal inne i centrala
-                Stenungsund, där vi höll till fram till årsskiftet. 2024 gick vi över till
-                foodtruck på heltid.
-              </p>
-              <p>
-                Idag står vi i en fast vagn på Rompen Street Food Market i Ellös, med fullt
-                fokus på smashburgare. Trucken åker fortfarande ut på catering och event då
-                och då — men hemma är hos oss på Rompen.
+                Ödsmålsburgaren startade hemma i Ödsmål 2015. Idag står Jonas i en fast
+                vagn på Rompen Street Food Market i Ellös, med fullt fokus på smashburgare.
+                Trucken åker fortfarande ut på catering och event då och då — men hemma är
+                hos oss på Rompen.
               </p>
               <p className="text-cream/90 font-500">
                 Vi är erfarna och har varit på alla typer av event, stora som små. Hoppas vi ses!
