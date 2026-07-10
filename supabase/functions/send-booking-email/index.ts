@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 const RESEND_API_KEY = "re_edwn1xqu_24t7GFp5cS3wPAji27pNWPhi";
-const TO_EMAIL = "kontakt.togethr@gmail.com";
+const TO_EMAIL = "odsmalsburgaren@gmail.com";
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
