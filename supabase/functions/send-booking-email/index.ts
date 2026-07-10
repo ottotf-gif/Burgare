@@ -1,5 +1,4 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import nodemailer from "npm:nodemailer@6.9.16";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -7,16 +6,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
-const GMAIL_USER = "kontakt.togethr@gmail.com";
-const GMAIL_APP_PASSWORD = Deno.env.get("GMAIL_APP_PASSWORD") ?? "";
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: GMAIL_USER,
-    pass: GMAIL_APP_PASSWORD,
-  },
-});
+const RESEND_API_KEY = "re_edwn1xqu_24t7GFp5cS3wPAji27pNWPhi";
+const TO_EMAIL = "kontakt.togethr@gmail.com";
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
@@ -42,30 +33,7 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    if (!GMAIL_APP_PASSWORD) {
-      console.error("GMAIL_APP_PASSWORD secret is not set");
-      return new Response(
-        JSON.stringify({ error: "E-post inte konfigurerad." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-      );
-    }
-
     const subject = `Ny bokningsförfrågan från ${name}`;
-    const text = [
-      `Ny bokningsförfrågan har kommit in via hemsidan.`,
-      ``,
-      `Namn: ${name}`,
-      `Företag: ${company}`,
-      `E-post: ${email}`,
-      `Telefon: ${phone}`,
-      `Datum: ${eventDate}`,
-      `Antal gäster: ${guests}`,
-      `Plats: ${location}`,
-      ``,
-      `Meddelande:`,
-      `${message}`,
-    ].join("\n");
-
     const html = `
       <h2>Ny bokningsförfrågan</h2>
       <p>En ny förfrågan har kommit in via hemsidan.</p>
@@ -82,14 +50,29 @@ Deno.serve(async (req: Request) => {
       <p style="font-family:sans-serif;white-space:pre-wrap;">${message}</p>
     `;
 
-    await transporter.sendMail({
-      from: GMAIL_USER,
-      to: GMAIL_USER,
-      replyTo: email,
-      subject,
-      text,
-      html,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "onboarding@resend.dev",
+        to: TO_EMAIL,
+        reply_to: email,
+        subject,
+        html,
+      }),
     });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("Resend API error:", res.status, errText);
+      return new Response(
+        JSON.stringify({ error: "Kunde inte skicka e-post." }),
+        { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
 
     return new Response(
       JSON.stringify({ success: true }),
