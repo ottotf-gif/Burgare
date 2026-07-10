@@ -50,23 +50,18 @@ export default function Booking() {
       return;
     }
 
-    const fnUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`;
-    try {
-      const res = await fetch(fnUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`Email failed (${res.status})`);
-    } catch {
-      console.warn('Booking saved but email notification failed.');
-    }
-
     setStatus('success');
     setForm(empty);
+
+    const fnUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`;
+    fetch(fnUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify(payload),
+    }).catch(() => console.warn('Email notification failed.'));
   };
 
   return (
