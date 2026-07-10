@@ -47,10 +47,26 @@ export default function Booking() {
     if (error) {
       setStatus('error');
       setErrorMsg('Något gick fel. Försök igen, eller ring oss direkt på 076-347 33 50.');
-    } else {
-      setStatus('success');
-      setForm(empty);
+      return;
     }
+
+    const fnUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`;
+    try {
+      const res = await fetch(fnUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Email failed (${res.status})`);
+    } catch {
+      console.warn('Booking saved but email notification failed.');
+    }
+
+    setStatus('success');
+    setForm(empty);
   };
 
   return (
