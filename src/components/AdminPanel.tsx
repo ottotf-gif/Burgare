@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase';
 import type { Event, Booking } from '../types';
 import {
   LogOut, Plus, Pencil, Trash2, X, Check, ChevronLeft,
-  Calendar, Inbox, Lock, Mail, Shield, Clock,
+  Calendar, Inbox, Lock, Mail, Clock,
 } from 'lucide-react';
 
 type AdminView = 'events' | 'bookings';
@@ -58,12 +58,6 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
               className="h-12 w-auto object-contain"
               onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
             />
-          </div>
-          <div className="inline-flex items-center gap-2 mb-3">
-            <Shield size={14} className="text-leaf-400" />
-            <span className="font-display text-xs font-700 uppercase tracking-mega text-leaf-400">
-              Säker åtkomst
-            </span>
           </div>
           <h1 className="font-display font-900 text-3xl text-cream uppercase tracking-tight">
             Admin
@@ -405,10 +399,7 @@ export default function AdminPanel({ onClose }: { onClose: () => void }) {
             <ChevronLeft size={18} />
             Tillbaka till sidan
           </button>
-          <div className="flex items-center gap-2">
-            <Shield size={16} className="text-leaf-400" />
-            <h1 className="font-display font-800 text-base text-cream uppercase tracking-tight">Admin Panel</h1>
-          </div>
+          <h1 className="font-display font-800 text-base text-cream uppercase tracking-tight">Admin Panel</h1>
           <button onClick={handleLogout} className="flex items-center gap-2 text-cream/40 hover:text-flame-400 font-body text-sm transition-colors">
             <LogOut size={16} />
             <span className="hidden sm:inline">Logga ut</span>
