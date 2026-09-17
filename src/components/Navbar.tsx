@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'Hitta oss', href: '#schema' },
   { label: 'Meny', href: '#meny' },
   { label: 'Om oss', href: '#om-oss' },
-  { label: 'Boka', href: '#boka' },
 ];
 
 export default function Navbar({ onAdminClick }: NavbarProps) {

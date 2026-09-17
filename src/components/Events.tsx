@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Clock, MapPin, Navigation } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { MAPS_URL } from '../lib/location';
+import { MAPS_URL, MAPS_EMBED_URL } from '../lib/location';
 import type { Event } from '../types';
 
 function formatDate(dateStr: string) {
@@ -16,6 +16,16 @@ function formatDate(dateStr: string) {
 function isPast(dateStr: string): boolean {
   return new Date(dateStr + 'T23:59:59') < new Date();
 }
+
+const openingHours = [
+  { day: 'Måndag', time: '10:30–14:00' },
+  { day: 'Tisdag', time: '10:30–14:00' },
+  { day: 'Onsdag', time: '10:30–14:00' },
+  { day: 'Torsdag', time: '10:30–14:00' },
+  { day: 'Fredag', time: '10:30–14:00' },
+  { day: 'Lördag', time: 'Stängt' },
+  { day: 'Söndag', time: 'Stängt' },
+];
 
 export default function Events() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -58,36 +68,22 @@ export default function Events() {
         {/* Home base — permanent spot, always visible */}
         <article className="relative overflow-hidden bg-coal-800 border border-leaf-500/40 shadow-plate">
           <div className="grid grid-cols-1 md:grid-cols-5">
-            {/* Image */}
-            <div className="relative md:col-span-2 h-48 md:h-auto">
-              <img
-                src="/rompen.jpg"
-                alt="Vår vagn på Rompen Street Food Market"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    'https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=900';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-coal-800 via-coal-800/30 to-transparent" />
-              <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-leaf-600 text-white text-xs font-display font-700 uppercase tracking-wide px-3 py-1.5">
+            {/* Info */}
+            <div className="md:col-span-2 p-6 md:p-8 flex flex-col justify-center">
+              <span className="inline-flex items-center gap-1.5 bg-leaf-600 text-white text-xs font-display font-700 uppercase tracking-wide px-3 py-1.5 self-start mb-4">
                 Alltid här
               </span>
-            </div>
-
-            {/* Info */}
-            <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
               <p className="font-chalk text-butter-300 text-2xl leading-none mb-1.5">vår fasta plats</p>
               <h3 className="font-display font-800 text-2xl md:text-3xl text-cream leading-tight mb-3">
-                Rompen Street Food Market
+                Golv till Tak, Stenungsund
               </h3>
               <p className="flex items-start gap-2.5 font-body text-cream/75 leading-relaxed mb-5">
                 <MapPin size={17} className="text-flame-400 shrink-0 mt-0.5" />
-                Lavö Hamn 950, 474 92 Tuvesvik, Ellös
+                Stenungsund
               </p>
               <p className="font-body text-sm text-cream/60 leading-relaxed mb-6">
                 Vår vagn står här — här smashar vi burgare som vanligt. Kom förbi, beställ
-                och häng en stund. Ingen jakt på var trucken är idag, vi har hemmaplan.
+                och häng en stund.
               </p>
               <a
                 href={MAPS_URL}
@@ -99,8 +95,41 @@ export default function Events() {
                 Vägbeskrivning
               </a>
             </div>
+
+            {/* Map */}
+            <div className="md:col-span-3 h-64 md:h-auto min-h-[280px]">
+              <iframe
+                title="Karta — Golv till Tak, Stenungsund"
+                src={MAPS_EMBED_URL}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
         </article>
+
+        {/* Opening hours */}
+        <div className="mt-8 bg-coal-800 border border-coal-700 p-6 md:p-8">
+          <div className="flex items-center gap-3 mb-5">
+            <Clock className="text-butter-400" size={22} />
+            <h3 className="font-display font-800 text-xl text-cream uppercase tracking-wide">
+              Öppettider
+            </h3>
+            <span className="font-chalk text-butter-300 text-lg ml-auto">Golv till Tak</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-2.5">
+            {openingHours.map((oh) => (
+              <div key={oh.day} className="flex items-center justify-between border-b border-coal-700/60 pb-2">
+                <span className="font-body text-sm text-cream/70">{oh.day}</span>
+                <span className={`font-display text-sm font-700 ${oh.time === 'Stängt' ? 'text-coal-500' : 'text-leaf-300'}`}>
+                  {oh.time}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Secondary — occasional truck dates */}
         <div className="mt-12">
@@ -124,7 +153,7 @@ export default function Events() {
 
           {!loading && !error && upcoming.length === 0 && (
             <p className="font-body text-cream/55 py-4">
-              Inga inbokade datum utanför vagnen just nu — men du hittar oss alltid på Rompen ovan.
+              Inga inbokade datum utanför vagnen just nu — men du hittar oss alltid på Golv till Tak ovan.
             </p>
           )}
 

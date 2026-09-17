@@ -4,12 +4,12 @@ const timeline = [
   { year: '2015', text: 'Jonas startar hemma i Ödsmål med att leverera förbokad lunch till privatpersoner och företag.' },
   { year: '2016', text: 'Det gick så bra att vi öppnade vår första lokal mitt i centrala Stenungsund.' },
   { year: '2024', text: 'Vi gick över till foodtruck på heltid — lunch och catering, dit folk var.' },
-  { year: '2026', text: 'Vi flyttade in i en fast vagn på Rompen Street Food Market i Ellös och satsade på ett renodlat smashburgar-koncept. Trucken åker numera bara ut då och då.' },
+  { year: '2026', text: 'Vi flyttade in i en fast vagn på Golv till Tak i Stenungsund och satsade på ett renodlat smashburgar-koncept. Trucken åker numera bara ut då och då.' },
 ];
 
 const offers = [
   { icon: UtensilsCrossed, title: 'Smashburgare', desc: 'Krispiga smash från vagnen varje öppetdag.' },
-  { icon: MapPin, title: 'Fast plats', desc: 'Rompen Street Food Market, Ellös — alltid här.' },
+  { icon: MapPin, title: 'Fast plats', desc: 'Golv till Tak, Stenungsund — alltid här.' },
   { icon: Truck, title: 'Catering', desc: 'Vi kommer till er — kontor, fest eller fält.' },
   { icon: PartyPopper, title: 'Event & fest', desc: 'Födelsedag, student, AW. Stora som små.' },
 ];
@@ -33,9 +33,9 @@ export default function About() {
             <div className="space-y-4 font-body text-cream/75 leading-relaxed">
               <p>
                 Ödsmålsburgaren startade hemma i Ödsmål 2015. Idag står Jonas i en fast
-                vagn på Rompen Street Food Market i Ellös, med fullt fokus på smashburgare.
+                vagn på Golv till Tak i Stenungsund, med fullt fokus på smashburgare.
                 Trucken åker fortfarande ut på catering och event då och då — men hemma är
-                hos oss på Rompen.
+                hos oss på Golv till Tak.
               </p>
               <p className="text-cream/90 font-500">
                 Vi är erfarna och har varit på alla typer av event, stora som små. Hoppas vi ses!

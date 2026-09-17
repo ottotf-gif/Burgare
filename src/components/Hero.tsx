@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 mb-6">
             <span className="inline-flex items-center gap-1.5 bg-leaf-600/20 border border-leaf-500/40 text-leaf-300 text-xs font-display font-600 uppercase tracking-mega px-3 py-1.5">
               <MapPin size={12} />
-              Rompen · Ellös
+              Golv till Tak · Stenungsund
             </span>
             <span className="text-cream/50 font-display text-xs font-600 uppercase tracking-mega">
               Sedan 2015
@@ -37,12 +37,12 @@ export default function Hero() {
           <h1 className="font-display font-900 text-cream leading-[0.92] tracking-tight uppercase">
             <span className="block text-[9vw] sm:text-6xl md:text-7xl text-leaf-400 whitespace-nowrap">Smashburgare</span>
             <span className="block text-[8vw] sm:text-5xl md:text-6xl text-flame-400 italic font-700 mt-1">
-              från vår vagn i Ellös
+              från vår vagn i Stenungsund
             </span>
           </h1>
 
           <p className="font-body text-base md:text-lg text-cream/75 mt-6 max-w-lg leading-relaxed">
-            Krispiga smashburgare från vår fasta plats på Rompen Street Food Market.
+            Krispiga smashburgare från vår fasta plats på Golv till Tak i Stenungsund.
             Vi tar även catering och event — säg bara till.
           </p>
 

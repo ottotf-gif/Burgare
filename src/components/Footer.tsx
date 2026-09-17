@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { MAPS_URL } from '../lib/location';
 
 interface FooterProps {
@@ -30,9 +30,29 @@ export default function Footer({ onAdminClick }: FooterProps) {
               <span className="font-display font-800 text-lg text-cream">Ödsmålsburgaren</span>
             </div>
             <p className="font-body text-sm text-cream/55 leading-relaxed max-w-sm">
-              Smashburgare från vår vagn på Rompen Street Food Market i Ellös. Vi har
+              Smashburgare från vår vagn på Golv till Tak i Stenungsund. Vi har
               hållit på sedan 2015 — och tar även catering och event.
             </p>
+            <div className="flex items-center gap-3 mt-4">
+              <a
+                href="https://www.facebook.com/p/%C3%96dsm%C3%A5lsburgaren-Foodtruck-61556800327343/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex items-center justify-center w-9 h-9 bg-coal-800 border border-coal-700 hover:border-flame-500 hover:text-flame-400 text-cream/70 transition-colors"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com/odsmals_burgaren/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex items-center justify-center w-9 h-9 bg-coal-800 border border-coal-700 hover:border-flame-500 hover:text-flame-400 text-cream/70 transition-colors"
+              >
+                <Instagram size={18} />
+              </a>
+            </div>
           </div>
 
           {/* Links */}
@@ -61,7 +81,7 @@ export default function Footer({ onAdminClick }: FooterProps) {
                   rel="noopener noreferrer"
                   className="font-body text-sm text-cream/65 hover:text-leaf-300 transition-colors"
                 >
-                  Lavö Hamn 950, 474 92 Tuvesvik, Ellös
+                  Golv till Tak, Stenungsund
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
