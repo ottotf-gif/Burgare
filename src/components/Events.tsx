@@ -79,7 +79,7 @@ export default function Events() {
               </h3>
               <p className="flex items-start gap-2.5 font-body text-cream/75 leading-relaxed mb-5">
                 <MapPin size={17} className="text-flame-400 shrink-0 mt-0.5" />
-                Stenungsund
+                Strandvägen 29, Stenungsund
               </p>
               <p className="font-body text-sm text-cream/60 leading-relaxed mb-6">
                 Vår vagn står här — här smashar vi burgare som vanligt. Kom förbi, beställ

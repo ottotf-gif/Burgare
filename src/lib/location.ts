@@ -3,13 +3,13 @@
 // so they always point to the exact same place.
 
 export const LOCATION_NAME = 'Golv till Tak';
-export const LOCATION_ADDRESS = 'Stenungsund';
+export const LOCATION_ADDRESS = 'Strandvägen 29, Stenungsund';
 
 export const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('Golv till Tak Stenungsund');
+  encodeURIComponent('Strandvägen 29, Stenungsund');
 
 export const MAPS_EMBED_URL =
   'https://www.google.com/maps?q=' +
-  encodeURIComponent('Golv till Tak Stenungsund') +
+  encodeURIComponent('Strandvägen 29, Stenungsund') +
   '&output=embed';

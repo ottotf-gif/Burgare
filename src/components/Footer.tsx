@@ -81,7 +81,7 @@ export default function Footer({ onAdminClick }: FooterProps) {
                   rel="noopener noreferrer"
                   className="font-body text-sm text-cream/65 hover:text-leaf-300 transition-colors"
                 >
-                  Golv till Tak, Stenungsund
+                  Golv till Tak, Strandvägen 29, Stenungsund
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
