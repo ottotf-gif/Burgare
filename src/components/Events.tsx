@@ -27,7 +27,7 @@ const openingHours = [
   { day: 'Söndag', time: 'Stängt' },
 ];
 
-export default function Events() {
+export default function Events({ mapAllowed }: { mapAllowed: boolean }) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -98,14 +98,28 @@ export default function Events() {
 
             {/* Map */}
             <div className="md:col-span-3 h-64 md:h-auto min-h-[280px]">
-              <iframe
-                title="Karta — Golv till Tak, Stenungsund"
-                src={MAPS_EMBED_URL}
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              {mapAllowed ? (
+                <iframe
+                  title="Karta — Golv till Tak, Stenungsund"
+                  src={MAPS_EMBED_URL}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="h-full min-h-[280px] bg-coal-900 flex items-center justify-center p-6 text-center">
+                  <div>
+                    <MapPin size={28} className="text-butter-400 mx-auto mb-3" />
+                    <p className="font-display font-700 text-cream uppercase tracking-wide text-sm">
+                      Karta är avstängd
+                    </p>
+                    <p className="font-body text-cream/50 text-sm leading-relaxed mt-2 max-w-xs">
+                      Godkänn externa tjänster i cookie-rutan för att visa Google Maps.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </article>

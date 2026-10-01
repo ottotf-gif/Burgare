@@ -7,9 +7,11 @@ import About from './components/About';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
+import CookieBanner, { getSavedConsent } from './components/CookieBanner';
 
 export default function App() {
   const [showAdmin, setShowAdmin] = useState(false);
+  const [mapConsent, setMapConsent] = useState<boolean>(() => getSavedConsent() === 'accepted');
 
   if (showAdmin) {
     return <AdminPanel onClose={() => setShowAdmin(false)} />;
@@ -20,12 +22,13 @@ export default function App() {
       <Navbar onAdminClick={() => setShowAdmin(true)} />
       <main>
         <Hero />
-        <Events />
+        <Events mapAllowed={mapConsent} />
         <Menu />
         <About />
         <Booking />
       </main>
       <Footer onAdminClick={() => setShowAdmin(true)} />
+      <CookieBanner onChoice={(choice) => setMapConsent(choice === 'accepted')} />
     </div>
   );
 }
