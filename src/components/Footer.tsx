@@ -114,9 +114,9 @@ export default function Footer({ onAdminClick }: FooterProps) {
             </p>
             <button
               onClick={onAdminClick}
-              className="font-body text-xs text-coal-600 hover:text-coal-500 transition-colors"
+              className="font-display text-[11px] font-600 uppercase tracking-wide text-cream/45 hover:text-cream border border-coal-700 hover:border-coal-500 px-3 py-1.5 transition-colors"
             >
-              Admin
+              Admin login
             </button>
           </div>
         </div>
