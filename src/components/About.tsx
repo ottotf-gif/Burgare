@@ -66,8 +66,8 @@ export default function About() {
           <div>
             <div className="relative overflow-hidden shadow-plate">
               <img
-                src="/Bild2.png"
-                alt="Smashburgare som tillagas"
+                src="/BIld2.png"
+                alt="Ödsmålsburgarens matvagn vid Golv till Tak"
                 className="w-full h-64 md:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-coal-900/70 to-transparent" />
