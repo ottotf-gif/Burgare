@@ -66,7 +66,7 @@ export default function About() {
           <div>
             <div className="relative overflow-hidden shadow-plate">
               <img
-                src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=900"
+                src="/Bild2.png"
                 alt="Smashburgare som tillagas"
                 className="w-full h-64 md:h-80 object-cover"
               />

@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Events from './components/Events';
 import Menu from './components/Menu';
 import About from './components/About';
+import Gallery from './components/Gallery';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
@@ -25,6 +26,7 @@ export default function App() {
         <Events mapAllowed={mapConsent} />
         <Menu />
         <About />
+        <Gallery />
         <Booking />
       </main>
       <Footer onAdminClick={() => setShowAdmin(true)} />

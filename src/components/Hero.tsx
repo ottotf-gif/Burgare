@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background food image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          src="/Bild1.png"
           alt="Saftig smashburgare"
           className="w-full h-full object-cover object-[center_60%] sm:object-center"
         />
